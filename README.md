@@ -44,6 +44,7 @@ not the fastest or the smartest way to build the app.
 1. [Add mongodb support](https://youtu.be/fh5yIRR5eTU)
 1. [Add form validation ](https://youtu.be/kMWyKoJ_cwc)
 1. [Add session handling](https://youtu.be/vRxzjfxfCc8)
+1. [Add session persistence and password hashing](https://youtu.be/a06M7ba32AU)
 1. [Add tasks](https://youtu.be/NnEL3zHrItw)
 
 I failed to do a few things in these screencasts. First, I did not show you
