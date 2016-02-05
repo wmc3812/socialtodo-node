@@ -158,13 +158,39 @@ app.post('/task/create', function(req, res){
 });
 
 // Handle task deletion
-app.delete('/task/delete', function(req, res) {
-        Tasks.remove({
-            _id : req.params.todo_id
-        }, function(err, todo) {
-            if (err)
-              return res.send(err);
-        });
+app.post('/task/delete/', function(req, res) {
+  Tasks.findById(req.body._id) 
+  .exec(function(err, tasks){
+      if(err || !tasks){
+        res.send('Error deleting task!');
+      } else {
+        tasks.remove(function (err) {
+        if (err) {
+          res.send(err);
+        } else {
+          res.redirect('/');
+        }
+      });
+    }  
+  });
+});  
+
+// Mark task complete
+app.delete('/task/complete/:id', function(req, res) {
+  var newTask = new Tasks();
+  newTask.owner = res.locals.currentUser._id;
+  newTask.title = req.body.title;
+  newTask.description = req.body.description;
+  newTask.isComplete = true;
+  newTask.collaborators = [req.body.collaborator1, req.body.collaborator2, req.body.collaborator3];
+  newTask.save(function(err, savedTask){
+    if(err || !savedTask){
+      res.send('Error saving task!');
+    }else{
+      res.redirect('/');
+      res.send('Yay!');
+    }
+  });
 });
 
 // Start the server
