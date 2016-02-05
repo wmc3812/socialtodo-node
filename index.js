@@ -175,8 +175,8 @@ app.post('/task/delete/', function(req, res) {
   });
 });  
 
-// Mark task complete
-app.delete('/task/complete/:id', function(req, res) {
+/* Mark task complete
+app.post('/task/complete/:id', function(req, res) {
   var newTask = new Tasks();
   newTask.owner = res.locals.currentUser._id;
   newTask.title = req.body.title;
@@ -192,6 +192,7 @@ app.delete('/task/complete/:id', function(req, res) {
     }
   });
 });
+*/
 
 // Start the server
 app.listen(process.env.PORT, function () {
