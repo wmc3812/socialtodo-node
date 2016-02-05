@@ -158,9 +158,13 @@ app.post('/task/create', function(req, res){
 });
 
 // Handle task deletion
-app.post('/task/delete', function(req, res){
-  var delTask = Tasks();
-  
+app.delete('/task/delete', function(req, res) {
+        Tasks.remove({
+            _id : req.params.todo_id
+        }, function(err, todo) {
+            if (err)
+              return res.send(err);
+        });
 });
 
 // Start the server
