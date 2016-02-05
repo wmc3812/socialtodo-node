@@ -157,6 +157,12 @@ app.post('/task/create', function(req, res){
   });
 });
 
+// Handle task deletion
+app.post('/task/delete', function(req, res){
+  var delTask = Tasks();
+  
+});
+
 // Start the server
 app.listen(process.env.PORT, function () {
   console.log('Example app listening on port ' + process.env.PORT);

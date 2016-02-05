@@ -16,7 +16,7 @@
             {{#each tasks}}
                 <li class="tasks-list-item">
                   <span class="task-title">{{this.title}}</span>
-                  <form method="post">
+                  <form method="post" action="/task/delete">
                     <input type="button" name="delete-task" class="delete-task" value="Delete">
                   </form>
                   <form method="post">
